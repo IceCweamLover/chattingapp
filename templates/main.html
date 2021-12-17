@@ -6,5 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <body>
     <p> this is a website template!</p>
+        <style>
+        .main{font-weight: 50; font-size: 20px; color: #696969; margin: auto; text-align: center; padding-top: 20;}  
+        body{color: #696969; font-family: noto sans,sans-serif; font-size: 40px; margin: auto; text-align: center; padding-top: 20;} 
+        footer{color: #696969; font-family: noto sans,sans-serif; font-size: 15px; margin: auto; text-align: center; padding-top: 100;}
+        </style>
     </body>
+    <footer>
+        <style type="text/css">
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .wrap{
+                width: 80%;
+                margin: 30px auto;
+            }
+            .collapse{
+                background-color:#696969;
+                color:#F08080;
+                cursor: pointer ;
+                padding: 18px;
+                width: 100%;
+                border: none;
+                outline: none;
+                text-align: left;
+                font-size: 18px;
+            }
+            .active,
+            .collapse:hover{
+                background-color:#F08080;
+            }
+            .collapse::after{
+                content: "\002b";
+                color: #696969;
+                font-weight: bold;
+                float: right;
+                margin-left: 5px;
+            }
+            .active::after{
+                content:"\2212";
+            }
+            .content{
+                padding: 0 18px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                background-color:#696969
+            }
+        </style>
+        <div class="wrap">
+        <button type="button" class="collapse">Friends!</button>
+        <div class="content">
+            <p> HERE IS WHERE ALL THE FRIENDS WILL BE
+        </div>
+    </div>
+    <script type= "text/javascript">
+        var collapse=document.getElementsByClassName("collapse");
+        var i;
+        for(i = 0; i < collapse.length; i++){
+            collapse[i].addEventListener("click",function(){
+                this.classList.toggle("active");
+                var content=this.nextElementSibling;
+                if(content.style.maxHeight){
+                    content.style.maxHeight=null;
+                } else {
+                    content.style.maxHeight=content.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+    </footer>
 </html>
