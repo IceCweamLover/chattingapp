@@ -1,5 +1,4 @@
 PORT = 5050
-SERVER = socket.gethostbyname(socket.gethostname())
 import socket
 PORT = 5050
 SERVER = '192.168.15.221'
