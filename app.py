@@ -1,6 +1,13 @@
 from flask import Flask
 from flask import render_template
 import socket #this will be a BIG part of this project
+#PUT ALL SERVER CODE HERE:
+
+
+
+
+
+
 app=Flask(__name__)
 @app.route('/')
 def mainpage():
