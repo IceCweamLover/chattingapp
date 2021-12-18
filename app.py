@@ -3,6 +3,16 @@ from flask import render_template
 import socket #this will be a BIG part of this project
 #SERVER CODE HERE:
 
+
+
+app=Flask(__name__)
+@app.route('/')
+def mainpage():
+    return render_template("main.html",addr=addr,msg=msg)#uses our html file 
+
+if __name__=='__main__':
+  app.run()#runs the website when the file is ran
+
 import socket 
 import threading
 
@@ -38,14 +48,3 @@ def start():
         thread = threading.Thread(target=handle_client, args=(conn, addr))
         thread.start()
         print(f"[ACTIVE CONNECTIONS] {threading.activeCount() - 1}")
-
-
-
-
-app=Flask(__name__)
-@app.route('/')
-def mainpage():
-    return render_template("main.html",addr=addr,msg=msg)#uses our html file 
-
-if __name__=='__main__':
-  app.run()#runs the website when the file is ran
