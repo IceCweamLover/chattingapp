@@ -27,7 +27,6 @@ def handle_client(conn, addr):
             msg = conn.recv(msg_length).decode(FORMAT)
             if msg == DISCONNECT_MESSAGE:
                 connected = False
-            print(f"[{addr}] {msg}")
             conn.send("Msg received".encode(FORMAT))
     conn.close()
         
@@ -47,7 +46,7 @@ def start():
 app=Flask(__name__)
 @app.route('/')
 def mainpage():
-    return render_template("main.html")#uses our html file 
+    return render_template("main.html",addr=addr,msg=msg)#uses our html file 
 
 if __name__=='__main__':
   app.run()#runs the website when the file is ran
